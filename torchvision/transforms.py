@@ -38,7 +38,8 @@ class ToTensor(object):
     def __call__(self, pic):
         if isinstance(pic, np.ndarray):
             # handle numpy array
-            img = torch.from_numpy(pic.transpose((2, 0, 1)))
+            #img = torch.from_numpy(pic.transpose((2, 0, 1)))
+            img = torch.from_numpy(pic.transpose((0, 3, 1, 2)))
             # backard compability
             return img.float().div(255)
         # handle PIL Image
